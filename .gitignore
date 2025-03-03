@@ -1,0 +1,24 @@
+# Compiled binaries
+release/
+*.o
+*.a
+*.so
+*.exe
+*.dll
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Editor/IDE specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
