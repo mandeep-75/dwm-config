@@ -1,14 +1,10 @@
 /* See LICENSE file for copyright and license details. */
-
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
-
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
-
 /* maximum output string length */
 #define MAXLEN 2048
-
 /*
  * function            description                     argument (example)
  *
@@ -31,7 +27,7 @@ static const char unknown_str[] = "n/a";
  * hostname            hostname                        NULL
  * ipv4                IPv4 address                    interface name (eth0)
  * ipv6                IPv6 address                    interface name (eth0)
- * kernel_release      `uname -r`                      NULL
+ * kernel_release      uname -r                      NULL
  * keyboard_indicators caps/num lock indicators        format string (c?n?)
  *                                                     see keyboard_indicators.c
  * keymap              layout (variant) of current     NULL
@@ -67,5 +63,7 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ cpu_perc,             "[ %s%%]",      NULL },
         { uptime,             "[%s]",      NULL },
-      	{ datetime, "  %s",           "%m-%d-%Y %I:%M%p " },
-};
+        { battery_state,             "[%s]",     "BAT0" },
+        { run_command, "[%s]", "amixer get Master | grep -q '\\[off\\]' && echo '' || amixer get Master | awk -F'[][]' '/Left:/ { print \" \" $2 }' | head -n1" },
+      	{ datetime, "  %s",           "%m-%d %I:%M%p " },
+}; 
